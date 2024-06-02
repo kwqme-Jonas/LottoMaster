@@ -1,14 +1,25 @@
 <x-app-layout>
    @section('hero')
-    <div class="w-full text-center py-32">
-        <h1 class="text-2xl md:text-3xl font-bold text-center lg:text-5xl text-gray-700">
-            Welcome to <span class="text-yellow-500">&lt;Loto&gt;</span> <span class="text-gray-900"> Masters</span>
-        </h1>
-        <p class="text-gray-500 text-lg mt-1">Best Blog in the universe</p>
-        <a class="px-3 py-2 text-lg text-white bg-gray-800 rounded mt-5 inline-block"
-            href="http://lotomasters.test/blog">Start
-            Reading</a>
-    </div>
+        <section class="bg-white">
+            <div class="grid max-w-screen-xl px-4 pt-20 pb-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12 lg:pt-28">
+                <div class="mr-auto place-self-center lg:col-span-7">
+                    <h1
+                        class="max-w-2xl mb-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl xl:text-6xl">
+                        Welcome to <br><span class="text-yellow-500">Lotto Masters</span>
+                    </h1>
+
+                    <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl">
+                        Lotto Masters is an exciting new lottery gaming provider in Ghana, poised to revolutionize the industry with its cutting-edge offerings. We are thrilled to introduce our digital lottery suite, featuring the captivating number games.
+                    </p>
+                </div>
+
+                <div class="hidden lg:mt-0 lg:col-span-5 lg:flex rounded-lg w-50 h-50">
+                    
+                    <img src="{{ asset('img/hero2.png') }}" alt="Hero">
+                </div>
+
+            </div>
+        </section>
    @endsection
     
 
