@@ -15,7 +15,18 @@ class PostController extends Controller
                     'posts' => Post::take(5)->get()
                 ]
 
-    );
+        );
+    }
+
+    public function show(Post $post)
+    {
+        return view('
+                posts.show',
+                [
+                    'post' => $post
+                ]
+
+        );
 
 
     }
