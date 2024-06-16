@@ -1,10 +1,10 @@
 <x-app-layout>
    @section('hero')
         <section class="bg-white">
-            <div class="grid max-w-screen-xl px-4 pt-20 pb-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12 lg:pt-28">
+            <div class="grid max-w-screen-xl px-4 pt-10 pb-4 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12 lg:pt-15">
                 <div class="mr-auto place-self-center lg:col-span-7">
                     <h1
-                        class="max-w-2xl mb-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl xl:text-6xl">
+                        class="max-w-2xl mb-4 text-4xl font-extrabold leading-none  tracking-tight md:text-5xl xl:text-6xl">
                         Welcome to <br><span class="text-yellow-500">Lotto Masters</span>
                     </h1>
 
@@ -23,8 +23,8 @@
    @endsection
     
 
-    <div class="mb-10 w-full">
-        <div class="mb-16">
+    <div class="mb-5 w-full">
+        <div class="mb-10">
             <h2 class="mt-16 mb-5 text-3xl text-yellow-500 font-bold">Featured Posts</h2>
             <div class="w-full">
                 <div class="grid grid-cols-3 gap-10 w-full">
