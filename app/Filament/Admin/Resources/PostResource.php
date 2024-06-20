@@ -4,6 +4,7 @@ namespace App\Filament\Admin\Resources;
 
 use App\Filament\Admin\Resources\PostResource\Pages;
 use App\Filament\Admin\Resources\PostResource\RelationManagers;
+use App\Filament\Admin\Resources\PostResource\RelationManagers\CommentsRelationManager;
 use App\Models\Post;
 use Filament\Forms;
 use Filament\Forms\Components\Checkbox;
@@ -96,7 +97,7 @@ class PostResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            CommentsRelationManager::class
         ];
     }
 
