@@ -9,7 +9,7 @@
                     {{ __('Home') }}
                 </x-nav-link>
                 <x-nav-link href="{{ route('posts.index') }}" :active="request()->routeIs('posts.index')">
-                    {{ __('Blog') }}
+                    {{ __('Feeds') }}
                 </x-nav-link>
             </div>
         </div>

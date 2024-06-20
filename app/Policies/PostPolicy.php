@@ -68,7 +68,7 @@ class PostPolicy
     /**
      * Determine whether the user can bulk restore the model.
      */
-    public function restoreAny(User $user, Post $post): bool
+    public function restoreAny(User $user): bool
     {
         return $user->isAdmin();
     }

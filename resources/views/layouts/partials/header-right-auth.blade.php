@@ -1,5 +1,5 @@
 <div class=" flex ms-3 relative space-x-4">
-    @can('view-admin', App\ Models\User::class)
+    @can('view-admin', App\Models\User::class)
         <x-nav-link :navigate='false' href="{{ route('filament.admin.pages.dashboard') }}" :active="request()->routeIs('filament.admin.pages.dashboard')">
             {{ __('Admin') }}
         </x-nav-link>

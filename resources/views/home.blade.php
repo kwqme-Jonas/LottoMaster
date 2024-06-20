@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-app-layout title="Home Page">
    @section('hero')
         <section class="bg-white">
             <div class="grid max-w-screen-xl px-4 pt-10 pb-4 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12 lg:pt-15">
