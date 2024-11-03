@@ -5,6 +5,7 @@ namespace App\Filament\Admin\Resources;
 use App\Filament\Admin\Resources\UserResource\Pages;
 use App\Filament\Admin\Resources\UserResource\RelationManagers;
 use App\Models\User;
+use Filament\Actions\Action;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -12,6 +13,7 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\Support\Facades\Storage;
 
 class UserResource extends Resource
 {
@@ -33,6 +35,9 @@ class UserResource extends Resource
                 Forms\Components\Select::make('role')
                     ->options(User::ROLES)
                     ->required(),
+                Forms\Components\FileUpload::make('verification_id')->image()->directory('verification_id'),
+                Forms\Components\Toggle::make('is_approved')->required(),
+                 
             ]);
     }
 
@@ -53,13 +58,20 @@ class UserResource extends Resource
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('role')
+                    ->sortable()
                     ->searchable(),
+                Tables\Columns\ImageColumn::make('verification_id')
+                    ->label('Verification ID')
+                    ->disk('public')
+                    ->url(fn (User $record) => asset('storage/verification_id/' . $record->verification_id)),
+                Tables\Columns\BooleanColumn::make('is_approved')->label('Approved'),
+                
             ])
             ->filters([
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
+           
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

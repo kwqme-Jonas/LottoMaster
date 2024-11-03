@@ -12,6 +12,9 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
+
 
 class User extends Authenticatable implements FilamentUser
 {
@@ -28,7 +31,8 @@ class User extends Authenticatable implements FilamentUser
 
     const ROLE_USER ='USER';
 
-    const ROLE_DEFAULT = self::ROLE_USER;
+    const ROLE_DEFAULT = 'USER';
+
 
     const ROLES = [
         self::ROLE_ADMIN => 'Admin',
@@ -47,9 +51,6 @@ class User extends Authenticatable implements FilamentUser
         return $this->role === self::ROLE_ADMIN;
     }
 
-    public function isLotomaster(){
-        return $this->role === self::ROLE_LOTOMASTER;
-    }
     /**
      * The attributes that are mass assignable.
      *
@@ -59,8 +60,11 @@ class User extends Authenticatable implements FilamentUser
         'name',
         'email',
         'password',
-        'role'
+        'role',
+        'is_approved',
+        'verification_id',
     ];
+
 
     /**
      * The attributes that should be hidden for serialization.
@@ -73,6 +77,10 @@ class User extends Authenticatable implements FilamentUser
         'two_factor_recovery_codes',
         'two_factor_secret',
     ];
+
+
+
+
 
     /**
      * The attributes that should be cast.

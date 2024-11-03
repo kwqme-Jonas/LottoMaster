@@ -9,7 +9,7 @@ class UserPolicy
 {
 
     public function viewAdmin(User $user) : bool{
-        return $user->isAdmin() || $user->isLotomaster();
+        return $user->isAdmin();
     }
     /**
      * Determine whether the user can view any models.

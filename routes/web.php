@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +22,13 @@ Route::get('/', HomeController::class)->name('home');
 Route::get('/blog', [PostController::class, 'index'])->name('posts.index');
 
 Route::get('/blog/{post:slug}', [PostController::class, 'show'])->name('posts.show');
+
+//Route::post('/profile/upload-id', [ProfileController::class, 'uploadIdDocument'])->name('profile.upload-id');
+
+Route::group(['auth' => 'approved'], function () {
+    Route::post('/login', [AuthenticatedSessionController::class, 'store'])
+        ->name('login');
+});
 
 Route::middleware([
     'auth:sanctum',

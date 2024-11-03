@@ -6,7 +6,8 @@
         <div class="mt-2 flex justify-between items-center">
             <div class="flex py-5 text-base items-center">
                 <x-posts.author :author="$post->author" />
-                <span class="text-gray-500 text-sm">| {{ $post->getReadingTime()}} min read</span>
+                <span class="text-gray-500 text-sm">| 
+                    {{ $post->getReadingTime()}} min read</span>
             </div>
             <div class="flex items-center">
                 <span class="text-gray-500 mr-2">{{ $post->published_at->diffForHumans() }}</span>
@@ -23,11 +24,7 @@
             <div class="flex items-center">
                 <livewire:like-button :key="'likebutton-' . $post->id" :$post />
             </div>
-            <div>
-                <div class="flex items-center">
-                    
-                </div>
-            </div>
+            
         </div>
 
         <div class="article-content prose py-3 text-gray-800 text-lg text-justify">

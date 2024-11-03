@@ -27,7 +27,13 @@ class PostController extends Controller
                 ]
 
         );
-
-
     }
+
+    public function comment($id)
+    {
+        $posts = Post::withCount('comments')->get();
+
+        return view('posts.index', compact('posts'));
+    }
+
 }

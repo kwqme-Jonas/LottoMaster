@@ -27,6 +27,8 @@
                 </div> 
                 <div>
                     <livewire:like-button :key="'likebutton-' . $post->id" :$post />
+                        <br>
+                         <p>Comments: {{ $post->comments()->count()}}</p>
                 </div>
             </div>
         </div>

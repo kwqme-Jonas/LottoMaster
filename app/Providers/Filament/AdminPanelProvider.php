@@ -2,6 +2,9 @@
 
 namespace App\Providers\Filament;
 
+use App\Filament\Admin\Resources\CommentResource\Widgets\LatestCommentsWidget;
+use App\Filament\Admin\Resources\PostResource\Widgets\PostPerMonthChart;
+use App\Filament\Admin\Resources\UserResource\Widgets\UserStatWidget;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
@@ -35,8 +38,9 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->discoverWidgets(in: app_path('Filament/Admin/Widgets'), for: 'App\\Filament\\Admin\\Widgets')
             ->widgets([
-                Widgets\AccountWidget::class,
-                Widgets\FilamentInfoWidget::class,
+               UserStatWidget::class,
+               PostPerMonthChart::class,
+               LatestCommentsWidget::class
             ])
             ->middleware([
                 EncryptCookies::class,
